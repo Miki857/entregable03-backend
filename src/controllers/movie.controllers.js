@@ -43,7 +43,7 @@ const setGenres = catchError(async(req, res) => {
     const movie = await Movie.findByPk(id);
     //  ---------set+<tablename> en camelCase y en plural
     await movie.setGenres(req.body);
-    const genres = await Movie.getGenres();
+    const genres = await movie.getGenres();
     if(!genres) return res.sendStatus(404);
     return res.json(genres);
 });
@@ -53,7 +53,7 @@ const setActors = catchError(async(req, res) => {
     const movie = await Movie.findByPk(id);
     //  ---------set+<tablename> en camelCase y en plural
     await movie.setActors(req.body);
-    const actors = await Movie.getActors();
+    const actors = await movie.getActors();
     if(!actors) return res.sendStatus(404);
     return res.json(actors);
 });
@@ -63,7 +63,7 @@ const setDirectors = catchError(async(req, res) => {
     const movie = await Movie.findByPk(id);
     //  ---------set+<tablename> en camelCase y en plural
     await movie.setDirectors(req.body);
-    const directors = await Movie.getDirectors();
+    const directors = await movie.getDirectors();
     if(!directors) return res.sendStatus(404);
     return res.json(directors);
 });
